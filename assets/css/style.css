@@ -65,17 +65,24 @@
 /******************** Display CSS ******************/
 .screen {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 
     width: 22rem;
-    height: 3rem;
+    height: 3.5rem;
 
     border: 1px solid silver;
     border-radius: 4px;
 }
 
-.screen-text {
+.screen-text-top {
+    padding-top: 0.2rem;
+    padding-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.screen-text-bottom {
+    padding-bottom: 0.2rem;
     padding-right: 0.5rem;
     font-size: 2rem;
 }
