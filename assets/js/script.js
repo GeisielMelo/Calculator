@@ -12,83 +12,37 @@ var expression = "0";
 var lastExpression = "";
 
 ///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
+//                       Action on Button pressed                            //
 ///////////////////////////////////////////////////////////////////////////////
 
 // Select case.
 function selectCase(value) {
     switch (value) {
         case "+":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            inputSignal(value);
             break;
         case "-":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            inputSignal(value);
             break;
         case "*":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            inputSignal(value);
             break;
         case "/":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            inputSignal(value);
             break;
         case "(":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            writeOnScreen(value);
+            writeExpressionOnVar(value);
             break;
         case ")":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            writeOnScreen(value);
+            writeExpressionOnVar(value);
             break;
         case "%":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            inputSignal(value);
             break;
         case ".":
-            if (isSignalPressed()) {
-                    setSignal(value);
-                return;
-            } else {
-                writeOnScreen(value);
-                writeExpressionOnVar(value);
-            }
+            inputSignal(value);
             break;
 
 
@@ -113,95 +67,130 @@ function selectCase(value) {
             writeExpressionOnVar(value);
             break;
         case "1":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "2":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "3":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "4":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "5":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "6":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "7":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "8":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
             break;
         case "9":
-            if (expression == "0") {
-                setNumber(value);
-            } else {
-                writeOnScreen(value);
-            }
-            writeExpressionOnVar(value);
+            inputNumber(value)
+            break;
+
+
+        case "TAM":
+            text = getTextOnScreen();
+            calc = evalTAN(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "SIN":
+            text = getTextOnScreen();
+            calc = evalSIN(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "COS":
+            text = getTextOnScreen();
+            calc = evalCOS(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "SQRT":
+            text = getTextOnScreen();
+            calc = evalSQRT(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "LOG":
+            text = getTextOnScreen();
+            calc = evalLOG(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "LOG10":
+            text = getTextOnScreen();
+            calc = evalLOG10(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "RAD":
+            text = getTextOnScreen();
+            calc = evalRAD(text);
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "E":
+            calc = evalE();
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "PI":
+            calc =  evalPI();
+            setNumber(calc);
+            writeExpressionOnVar(calc);
+            break;
+        case "DEL":
+                deleteLastChar();
+            break;
+        default:
+            break;
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
+//                        Auxiliary Functions                                //
 ///////////////////////////////////////////////////////////////////////////////
+
+// input signal.
+function inputSignal(value) {
+    if (isSignalPressed()) {
+        setSignal(value);
+    return;
+    } else {
+        writeOnScreen(value);
+        writeExpressionOnVar(value);
+    }
+}
+
+// input number
+function  inputNumber(value) {
+    if (expression === "0") {
+        setNumber(value);
+    } else {
+        writeOnScreen(value);
+    }
+    writeExpressionOnVar(value);
+}
 
 // Show pressed button on screen.
 function writeOnScreen(value) {
     return document.getElementById("screen-bottom").innerHTML += value;
 }
 
-
 // Show last expression.
 function showLastExpression(value) {
     return document.getElementById("screen-top").innerHTML = value;
 }
 
-//Show Evaluation.
+// Show Evaluation.
 function  showEvaluation() {
     return document.getElementById("screen-bottom").innerHTML = evalExpression();
 }
@@ -239,9 +228,21 @@ function evalExpression() {
 // verify if signal was pressed.
 function isSignalPressed() {
     let lastChar = expression.slice(-1);
-    const signals = ["+", "-", "*", "/", ".", "%", "(",  ")"];
+    const signals = ["+", "-", "*", "/", ".", "%"];
 
     if (signals.includes(lastChar)) {
+        return true;
+    } else  {
+        return false;
+    }
+}
+
+// verify last char is left parenthesis.
+function isLeftParenthesis() {
+    let lastChar = expression.slice(-1);
+    const leftParenthesis = ["("];
+
+    if (leftParenthesis.includes(lastChar)) {
         return true;
     } else  {
         return false;
@@ -262,6 +263,20 @@ function  clearScreen() {
     document.getElementById("screen-bottom").innerHTML = lastExpression;
 }
 
+// Delete last char.
+function deleteLastChar() {
+    if (getTextOnScreen() === "NaN" || getTextOnScreen() === "-Infinity") {
+        expression = "0";
+    } else if (expression.length === 1) {
+        expression = "0";
+    } else if (expression.length > 1) {
+        expression = expression.slice(0, -1);
+    }
+    document.getElementById("screen-bottom").innerHTML = expression;
+}
+
+
+// Show alert error.
 function showError() {
     alert("Invalid Operation!");
     resetExpression();
@@ -269,6 +284,56 @@ function showError() {
     clearScreen();
 }
 
+// Get text on screen
+function getTextOnScreen() {
+    const element = document.getElementById("screen-bottom");
+    return element.textContent;
+}
 ///////////////////////////////////////////////////////////////////////////////
-//                                                                           //
+//                        Scientific Eval Functions                          //
 ///////////////////////////////////////////////////////////////////////////////
+// TAN
+function evalTAN(value) {
+    const radians = value * (Math.PI/180);
+    return Math.tan(radians);
+}   
+
+// SIN
+function evalSIN(value){
+    return Math.sin(value);
+}
+
+// COS
+function evalCOS(value){
+    let radians = value * Math.PI / 180;
+    return Math.cos(radians);   
+}
+
+// SQRT
+function evalSQRT(value){
+    return Math.sqrt(value);
+}
+// LOG
+function evalLOG(value){
+    return Math.log(value);
+}
+
+// LOG10
+function evalLOG10(value){
+    return Math.log10(value);
+}
+
+// RAD
+function evalRAD(value){
+    return value * (Math.PI/180);
+}
+
+// E
+function evalE(){
+    return Math.E;
+}
+
+// PI
+function evalPI(){
+    return Math.PI;
+}
