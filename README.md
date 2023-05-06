@@ -44,7 +44,7 @@ Clone the project to the desired location on your computer.
 # Extract the file.
 Calculator-main.zip
 
-# Execute 
+# Execute.
 open index.html
 ```
 
