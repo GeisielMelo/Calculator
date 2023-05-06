@@ -1,9 +1,11 @@
 /******************** Global CSS ******************/
-:root {
-    --color-one: ;
-    --color-two: ;
-    --color-three: ;
-    --color-four: ;
+html {
+    background-color: #C8B6A6;
+    background-image: linear-gradient(
+        to top, #8D7B68, #A4907C, #C8B6A6, #F1DEC9
+    );
+    font-family: 'helvetica neue';
+    height: 100vh;
 }
 
 * {
@@ -13,12 +15,25 @@
 
 
 /******************** Center CSS ******************/
+.main-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 95vh;
+    justify-content: space-around;
+
+    padding: 5rem;
+    width: 15rem;
+    height: 19rem;
+    background-color: #8D7B68;
+    background-image: linear-gradient(to top, #8D7B68, #A4907C, #C8B6A6);
+    border-radius: 0.5rem;
 }
 
 .grid {
@@ -71,7 +86,7 @@
     width: 22rem;
     height: 3.5rem;
 
-    border: 1px solid silver;
+    border: 1px solid rgb(152, 152, 152);
     border-radius: 4px;
 }
 
@@ -110,6 +125,7 @@
 .footer-text {
     text-align: center;
     text-decoration: none;
+    color: #F1DEC9;
 }
 
 
